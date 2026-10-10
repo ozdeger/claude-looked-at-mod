@@ -13,12 +13,12 @@ const TITLE = 'Looked at'
 const VIEWER = 'looked-at-view'
 const VIEWER_TITLE = 'Image'
 const VIEWER_COLUMNS = 400
-const EYE = '\u{1F441}\uFE0E'
+const EYE = '\u2800\u{1F441}\uFE0E\u2800'
 const OPEN = '\u2197'
 const REVEAL = '\u{1F4C2}'
 const ZOOM = '\u2922'
-const PREVIOUS = '\u2039'
-const NEXT = '\u203A'
+const PREVIOUS = '\u2190'
+const NEXT = '\u2192'
 const CLOSE = '\u2715'
 const PAGE = 20
 const IMAGE_PAGE = 10
@@ -347,7 +347,7 @@ export const register: Register = on => {
 
     return (
       <Box flexDirection="row" gap={1} alignItems="center">
-        <Button key="eye" label={EYE} plain dimColor={!isOpen} onPress={() => togglePane($)} />
+        <Button key="eye" label={EYE} dimColor={!isOpen} onPress={() => togglePane($)} />
         {below}
       </Box>
     )
@@ -453,10 +453,10 @@ export const register: Register = on => {
                 </Text>
                 <Box flexDirection="row" gap={1}>
                   {image.preview !== null && (
-                    <Button key={keyOf('zoom', image.id)} label={ZOOM} plain dimColor onPress={act(keyOf('zoom', image.id), { kind: 'view', id: image.id })} />
+                    <Button key={keyOf('zoom', image.id)} label={ZOOM} dimColor onPress={act(keyOf('zoom', image.id), { kind: 'view', id: image.id })} />
                   )}
-                  {image.file !== null && <Button key={keyOf('open', image.id)} label={OPEN} plain dimColor onPress={act(keyOf('open', image.id), { kind: 'launch', path: image.file, isRevealed: false })} />}
-                  {image.file !== null && <Button key={keyOf('reveal', image.id)} label={REVEAL} plain dimColor onPress={act(keyOf('reveal', image.id), { kind: 'launch', path: image.file, isRevealed: true })} />}
+                  {image.file !== null && <Button key={keyOf('open', image.id)} label={OPEN} dimColor onPress={act(keyOf('open', image.id), { kind: 'launch', path: image.file, isRevealed: false })} />}
+                  {image.file !== null && <Button key={keyOf('reveal', image.id)} label={REVEAL} dimColor onPress={act(keyOf('reveal', image.id), { kind: 'launch', path: image.file, isRevealed: true })} />}
                 </Box>
               </Box>
             </Box>
@@ -519,8 +519,8 @@ export const register: Register = on => {
                       </Text>
                     </Box>
                     <Box flexDirection="row" gap={1} flexShrink={0}>
-                      <Button key={keyOf('open', last.id)} label={OPEN} plain dimColor onPress={act(keyOf('open', last.id), { kind: 'launch', path: last.path, isRevealed: false })} />
-                      <Button key={keyOf('reveal', last.id)} label={REVEAL} plain dimColor onPress={act(keyOf('reveal', last.id), { kind: 'launch', path: last.path, isRevealed: true })} />
+                      <Button key={keyOf('open', last.id)} label={OPEN} dimColor onPress={act(keyOf('open', last.id), { kind: 'launch', path: last.path, isRevealed: false })} />
+                      <Button key={keyOf('reveal', last.id)} label={REVEAL} dimColor onPress={act(keyOf('reveal', last.id), { kind: 'launch', path: last.path, isRevealed: true })} />
                     </Box>
                   </Box>
                   {fullOnHover(keyOf('path', last.id), folderOf(path), last.path)}
@@ -549,7 +549,7 @@ export const register: Register = on => {
     const current = await read($, viewing)
     const index = list.findIndex(one => one.id === current)
     const image = list[index]
-    const close = <Button key="close" label={CLOSE} plain dimColor role="dismiss" onPress={act('close', { kind: 'close-viewer' })} />
+    const close = <Button key="close" label={CLOSE} dimColor role="dismiss" onPress={act('close', { kind: 'close-viewer' })} />
     if (image === undefined) {
       actions.set(VIEWER, drawn)
       return (
@@ -578,11 +578,11 @@ export const register: Register = on => {
       <Box flexDirection="column" gap={1}>
         <Box flexDirection="row" gap={1} alignItems="center">
           <Box flexDirection="row" gap={1} alignItems="center" flexShrink={0}>
-            <Button key="previous" label={PREVIOUS} plain dimColor onPress={act('previous', { kind: 'step', delta: -1 })} />
+            <Button key="previous" label={PREVIOUS} dimColor onPress={act('previous', { kind: 'step', delta: -1 })} />
             <Text dimColor>
               {index + 1} of {list.length}
             </Text>
-            <Button key="next" label={NEXT} plain dimColor onPress={act('next', { kind: 'step', delta: 1 })} />
+            <Button key="next" label={NEXT} dimColor onPress={act('next', { kind: 'step', delta: 1 })} />
           </Box>
           <Box flexGrow={1} flexShrink={1} minWidth={0}>
             <Text bold wrap="truncate-end">
@@ -590,8 +590,8 @@ export const register: Register = on => {
             </Text>
           </Box>
           <Box flexDirection="row" gap={1} flexShrink={0}>
-            {image.file !== null && <Button key="open" label={OPEN} plain dimColor onPress={act('open', { kind: 'launch', path: image.file, isRevealed: false })} />}
-            {image.file !== null && <Button key="reveal" label={REVEAL} plain dimColor onPress={act('reveal', { kind: 'launch', path: image.file, isRevealed: true })} />}
+            {image.file !== null && <Button key="open" label={OPEN} dimColor onPress={act('open', { kind: 'launch', path: image.file, isRevealed: false })} />}
+            {image.file !== null && <Button key="reveal" label={REVEAL} dimColor onPress={act('reveal', { kind: 'launch', path: image.file, isRevealed: true })} />}
             {close}
           </Box>
         </Box>

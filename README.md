@@ -7,7 +7,7 @@
 ## What you get
 
 - **Images tab:** every image a tool handed the agent, newest first. That covers browser and simulator screenshots, renders, image files it read, and the ones its subagents saw. Each row shows a thumbnail, the tool, its input (path, action or URL), the time, the pixel size and the file size.
-- **Viewer:** ⤢ opens an image large in a pane of its own. ‹ and › step through the history, and Esc or ✕ closes it.
+- **Viewer:** ⤢ opens an image large in a pane of its own. ← and → step through the history, and Esc or ✕ closes it.
 - **Files tab:** every Read, Edit and Write, with a file-type icon, line ranges and times. An orange dot on the icon marks an edit and a green dot a write. **Group by file** folds repeats into one row per file.
 - **Buttons:** ↗ opens a file or image in its default app, and 📂 shows it in Finder or Explorer. Hover over a path to see it in full.
 - **👁 in the footer**, next to the model picker, opens and closes the pane.
