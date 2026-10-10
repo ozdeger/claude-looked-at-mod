@@ -1,0 +1,15 @@
+{
+  "name": "looked-at",
+  "description": "Looked at: a Claude Code mod that shows every image and file the agent looked at",
+  "owner": {
+    "name": "Gökay Özdeğer",
+    "url": "https://github.com/ozdeger"
+  },
+  "plugins": [
+    {
+      "name": "looked-at",
+      "source": "./",
+      "description": "See every image and file the agent looked at, in a pane of the Claude desktop app"
+    }
+  ]
+}
