@@ -33,7 +33,7 @@ To make thumbnails, it copies images to your temp folder: `$TMPDIR/claude-looked
 In Claude Code in a terminal, run:
 
 ```
-/plugin install looked-at --marketplace ozdeger/looked-at
+/plugin install looked-at --marketplace ozdeger/claude-looked-at-mod
 ```
 
 Answer `y` to add the marketplace, then choose the user scope. Code tab sessions you start in the Claude desktop app after that load the mod. Click 👁 under the prompt to open the pane.
