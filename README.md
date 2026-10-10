@@ -30,13 +30,16 @@ To make thumbnails, it copies images to your temp folder: `$TMPDIR/claude-looked
 
 ## Install
 
-In Claude Code in a terminal, run:
+In any terminal, including the Claude desktop app's Terminal panel, run:
 
-```
-/plugin install looked-at --marketplace ozdeger/claude-looked-at-mod
+```bash
+claude plugin marketplace add ozdeger/claude-looked-at-mod
+claude plugin install looked-at@looked-at
 ```
 
-Answer `y` to add the marketplace, then choose the user scope. Code tab sessions you start in the Claude desktop app after that load the mod. Click 👁 under the prompt to open the pane.
+Or, inside an interactive `claude` session in a terminal, type `/plugin install looked-at --marketplace ozdeger/claude-looked-at-mod`, answer `y` to add the marketplace, then choose the user scope. In the desktop app's own composer, `/plugin` opens the claude.ai plugin catalog instead, which doesn't list GitHub marketplaces like this one.
+
+Code tab sessions you start in the Claude desktop app after installing load the mod. Click 👁 under the prompt to open the pane.
 
 ### Requirements
 
