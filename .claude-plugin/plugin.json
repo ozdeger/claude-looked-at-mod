@@ -1,6 +1,6 @@
 {
   "name": "looked-at",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "See every image and file the agent looked at: screenshots, renders and file reads in a pane of the Claude desktop app, built from session output only",
   "author": { "name": "Gökay Özdeğer", "url": "https://github.com/ozdeger" },
   "homepage": "https://github.com/ozdeger/claude-looked-at-mod",

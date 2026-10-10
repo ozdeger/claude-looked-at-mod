@@ -444,20 +444,24 @@ export const register: Register = on => {
                 )}
               </Box>
               <Box flexDirection="column" flexGrow={1} flexShrink={1} minWidth={0}>
-                <Text bold wrap="truncate-end">
-                  {label}
-                </Text>
+                <Box flexDirection="row" gap={1} alignItems="center">
+                  <Box flexGrow={1} flexShrink={1} minWidth={0}>
+                    <Text bold wrap="truncate-end">
+                      {label}
+                    </Text>
+                  </Box>
+                  <Box flexDirection="row" gap={1} flexShrink={0}>
+                    {image.preview !== null && (
+                      <Button key={keyOf('zoom', image.id)} label={ZOOM} dimColor onPress={act(keyOf('zoom', image.id), { kind: 'view', id: image.id })} />
+                    )}
+                    {image.file !== null && <Button key={keyOf('open', image.id)} label={OPEN} dimColor onPress={act(keyOf('open', image.id), { kind: 'launch', path: image.file, isRevealed: false })} />}
+                    {image.file !== null && <Button key={keyOf('reveal', image.id)} label={REVEAL} dimColor onPress={act(keyOf('reveal', image.id), { kind: 'launch', path: image.file, isRevealed: true })} />}
+                  </Box>
+                </Box>
                 {image.detail !== '' && fullOnHover(keyOf('detail', image.id), short(image.detail), image.detail)}
                 <Text dimColor wrap="truncate-end">
                   {facts.join(' · ')}
                 </Text>
-                <Box flexDirection="row" gap={1}>
-                  {image.preview !== null && (
-                    <Button key={keyOf('zoom', image.id)} label={ZOOM} dimColor onPress={act(keyOf('zoom', image.id), { kind: 'view', id: image.id })} />
-                  )}
-                  {image.file !== null && <Button key={keyOf('open', image.id)} label={OPEN} dimColor onPress={act(keyOf('open', image.id), { kind: 'launch', path: image.file, isRevealed: false })} />}
-                  {image.file !== null && <Button key={keyOf('reveal', image.id)} label={REVEAL} dimColor onPress={act(keyOf('reveal', image.id), { kind: 'launch', path: image.file, isRevealed: true })} />}
-                </Box>
               </Box>
             </Box>
           </Box>
